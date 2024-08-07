@@ -5,7 +5,6 @@ vis_stages_line_interactive <- function(sf_stages_line) {
   factpal <- colorFactor(topo.colors(nrow(sf_vis)), sf_vis$stage_id)
   
   leaflet(sf_vis) |>
-    #addProviderTiles("Stadia.StamenTerrain") |>
     addPolylines(color = ~factpal(stage_id)) |>
     addTiles()
 }

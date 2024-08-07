@@ -7,6 +7,9 @@ author:
     url: www.datannery.com
 date: "`r Sys.Date()`"
 output: distill::distill_article
+repository_url: https://github.com/duju211/deutschland_tour
+base_url: https://www.datannery.com/posts/deutschland_tour
+creative_commons: CC BY
 editor_options: 
   chunk_output_type: console
 params:
