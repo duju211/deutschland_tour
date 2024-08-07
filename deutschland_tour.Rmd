@@ -4,11 +4,11 @@ description: |
   Exploring the Route with R
 author:
   - name: Julian During
-date: "`r Sys.Date()`"
+date: "2024-08-07"
 output: distill::distill_article
 creative_commons: CC BY
 repository_url: https://github.com/duju211/deutschland_tour
-base_url: https://www.datannery.com/posts/deutschland_tour
+base_url: https://www.datannery.com/posts/deutschland_tour/
 editor_options: 
   chunk_output_type: console
 params:
