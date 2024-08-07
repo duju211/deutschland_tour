@@ -1,0 +1,12 @@
+library(tarchetypes)
+library(conflicted)
+library(tidyverse)
+library(ggspatial)
+library(leaflet)
+library(targets)
+library(httr2)
+library(xml2)
+library(fs)
+library(sf)
+
+conflicts_prefer(dplyr::filter)

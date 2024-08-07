@@ -1,0 +1,148 @@
+---
+title: "Deutschland Tour 2024"
+description: |
+  Exploring the Route with R.
+author:
+  - name: Julian During
+    url: www.datannery.com
+date: "`r Sys.Date()`"
+output: distill::distill_article
+editor_options: 
+  chunk_output_type: console
+params:
+  interactive: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = !params$interactive)
+
+source("libraries.R")
+
+df_manifest <- tar_manifest() |>
+  mutate(command = str_glue("{name} <- {command}"))
+```
+
+# Idea
+
+This years "Deutschland Tour" is a special one. It passes near my hometown and
+therefore I am wondering where I can watch the event. For me these key points
+are important:
+
+* Not too far away :)
+* Nice mountain climb (otherwise the riders pass very quickly)
+* Nearby Drinks are welcome :)
+
+To answer this question, I will use my R skills to import and visualise the
+data.
+
+# Data
+
+In this analysis the following libraries are used:
+
+```{r, file="libraries.R", eval=FALSE}
+```
+
+Define where gpx files can be read from:
+
+```{r gpx_url, code=df_manifest$command[df_manifest$name == "gpx_url"]}
+```
+
+Define helper function that reads in stage data. To do this first download
+the gpx file and save it to an temporary file. Then get all the elements
+that represent "trackpoints" and extract spatial information:
+
+```{r, file="R/stage.R"}
+```
+
+Apply the above mentioned function to all urls resulting in one final data
+frame:
+
+```{r, code=df_manifest$command[df_manifest$name == "df_stages"]}
+```
+
+# Analysis
+
+Turn data frame into sf object:
+
+```{r, code=df_manifest$command[df_manifest$name == "sf_stages"]}
+```
+
+```{r, eval=TRUE, include=FALSE}
+if (params$interactive)
+  tar_load(sf_stages)
+```
+
+```{r, eval=TRUE, echo=FALSE}
+sf_stages
+```
+
+The spatial data is represented as points at the moment.
+Summarise points per stage:
+
+```{r, code=df_manifest$command[df_manifest$name == "sf_stages_multipoint"]}
+```
+
+```{r, eval=TRUE, include=FALSE}
+if (params$interactive)
+  tar_load(sf_stages_multipoint)
+```
+
+```{r, eval=TRUE, echo=FALSE}
+sf_stages_multipoint
+```
+
+Cast into lines with this operation:
+
+```{r sf_stages_line, code=df_manifest$command[df_manifest$name == "sf_stages_line"]}
+```
+
+```{r, eval=TRUE, include=FALSE}
+if (params$interactive)
+  tar_load(sf_stages_line)
+```
+
+```{r, eval=TRUE, echo=FALSE}
+sf_stages_line
+```
+
+Now every stage is represented by one line.
+
+We can now plot the data:
+
+```{r, file="R/vis_stages_line.R"}
+```
+
+```{r, code=df_manifest$command[df_manifest$name == "gg_stages_line"]}
+```
+
+```{r, eval=TRUE, include=FALSE}
+if (params$interactive)
+  tar_load(gg_stages_line)
+```
+
+```{r, eval=TRUE, echo=FALSE, preview=TRUE}
+gg_stages_line
+```
+
+For closer inspection, we can also have an interactive look:
+
+```{r, file="R/vis_stages_line_interactive.R"}
+```
+
+```{r, code=df_manifest$command[df_manifest$name == "gg_stages_line_interactive"]}
+```
+
+```{r, eval=TRUE, include=FALSE}
+if (params$interactive)
+  tar_load(gg_stages_line_interactive)
+```
+
+```{r, eval=TRUE, echo=FALSE}
+gg_stages_line_interactive
+```
+
+# Conclusion
+
+I think I found my perfect spot. By downloading the data, turning it into
+a spatial format and plotting it interactively, I could easily explore the
+route. I hope this helps you to find your spot as well! Hope to see you there :)
