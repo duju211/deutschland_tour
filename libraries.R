@@ -1,5 +1,6 @@
 library(tarchetypes)
 library(conflicted)
+library(prettymapr)
 library(tidyverse)
 library(ggspatial)
 library(leaflet)
