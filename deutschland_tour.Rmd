@@ -41,17 +41,23 @@ are important:
 To answer this question, I will use my R skills to import and visualise the
 data.
 
-# Data
+# Reproducibility
 
 In this analysis the following libraries are used:
 
 ```{r, file="libraries.R", eval=FALSE}
 ```
 
-The whole analysis is realized as a 'targets'
-[@cit_targets] pipeline.
-For general data preprocessing the 'tidyverse' [@cit_tidyverse] is used.
-Other used packages will be cited along the way.
+If you want to reproduce this analysis, you have to perform the following steps:
+
+* Clone the repository (see footnote)
+* Run `renv::restore()` [@cit_renv]
+* Run `targets::tar_make()` [@cit_targets]
+
+Alternatively, you could run this analysis by copying and executing chunk by
+chunk in your R session (installing the above mentioned packages manually). 
+
+# Data
 
 At first define where gpx files can be read from:
 
@@ -121,8 +127,8 @@ if (params$interactive)
 sf_stages_line
 ```
 
-We can now plot the data. To Include an underlying map, 'ggspatial'
-[@cit_ggspatial] is used.
+We can now plot the data using known 'tidyverse' [@cit_tidyverse] techniques.
+To Include an underlying map, 'ggspatial' [@cit_ggspatial] is used.
 
 ```{r, file="R/vis_stages_line.R"}
 ```
