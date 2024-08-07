@@ -1,7 +1,7 @@
 ---
 title: "Deutschland Tour 2024"
 description: |
-  Exploring the Route of this years 'Deutschland Tour' with R
+  Exploring the route of this years 'Deutschland Tour' with R
 author:
   - name: Julian During
 date: "2024-08-07"
@@ -31,7 +31,8 @@ The "Deutschland Tour" is a big (road) bike race in Germany.
 By far not as big as the "Tour de France", but maybe it will get there :).
 
 This years "Deutschland Tour" is a special one. It passes near my hometown and
-therefore I am wondering where I can watch the event. For me these key points
+therefore I am wondering where there is a good spot for spectators.
+For me these key points
 are important:
 
 * Not too far away
