@@ -66,11 +66,13 @@ At first define where gpx files can be read from:
 ```
 
 Define helper function that reads in stage data. To do this first download
-the gpx file [@cit_httr2] and save it to an temporary file [@cit_fs].
+the gpx file (using 'httr2' [@cit_httr2]) and save it to an temporary file
+(using 'fs' [@cit_fs]).
 
-The resulting file is a xml file. Read it in [@cit_xml2]
+The resulting file is a xml file. Read it in 
+(using the 'xml2' package [@cit_xml2])
 and get all the elements that represent "trackpoints". 
-Extract spatial information from this "trackpoints" using various
+Extract spatial information from these "trackpoints" using various
 helper functions (see documentation links):
 
 ```{r, file="R/stage.R"}

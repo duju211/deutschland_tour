@@ -6530,10 +6530,12 @@ chunk in your R session (installing the above mentioned packages manually).</p>
 </div>
 </div>
 <p>Define helper function that reads in stage data. To do this first download
-the gpx file <span class="citation" data-cites="cit_httr2">(<a href="#ref-cit_httr2" role="doc-biblioref">Wickham 2024</a>)</span> and save it to an temporary file <span class="citation" data-cites="cit_fs">(<a href="#ref-cit_fs" role="doc-biblioref">Hester, Wickham, and Csárdi 2024</a>)</span>.</p>
-<p>The resulting file is a xml file. Read it in <span class="citation" data-cites="cit_xml2">(<a href="#ref-cit_xml2" role="doc-biblioref">Wickham, Hester, and Ooms 2023</a>)</span>
+the gpx file (using ‘httr2’ <span class="citation" data-cites="cit_httr2">(<a href="#ref-cit_httr2" role="doc-biblioref">Wickham 2024</a>)</span>) and save it to an temporary file
+(using ‘fs’ <span class="citation" data-cites="cit_fs">(<a href="#ref-cit_fs" role="doc-biblioref">Hester, Wickham, and Csárdi 2024</a>)</span>).</p>
+<p>The resulting file is a xml file. Read it in
+(using the ‘xml2’ package <span class="citation" data-cites="cit_xml2">(<a href="#ref-cit_xml2" role="doc-biblioref">Wickham, Hester, and Ooms 2023</a>)</span>)
 and get all the elements that represent “trackpoints”.
-Extract spatial information from this “trackpoints” using various
+Extract spatial information from these “trackpoints” using various
 helper functions (see documentation links):</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
