@@ -12,8 +12,11 @@ list(
   
   tar_target(df_stages, map_df(gpx_url, \(x) stage(x), .id = "stage_id")),
   tar_target(
+    df_stages_pro,
+    mutate(df_stages, across(c(lon, lat, elevation), \(x) parse_number(x)))),
+  tar_target(
     sf_stages, st_as_sf(
-      df_stages, coords = c("lon", "lat"), crs = st_crs(4326))),
+      df_stages_pro, coords = c("lon", "lat"), crs = st_crs(4326))),
   tar_target(
     sf_stages_multipoint,
     summarise(sf_stages, geometry = st_combine(geometry), .by = stage_id)),
@@ -22,5 +25,8 @@ list(
   tar_target(
     gg_stages_line_interactive, vis_stages_line_interactive(sf_stages_line)),
   
-  tar_render(deutschland_tour_report, "deutschland_tour.Rmd")
+  tar_render(deutschland_tour_report, "deutschland_tour.Rmd"),
+  tar_render(
+    deutschland_tour_report_test, "deutschland_tour.Rmd",
+    params = list(interactive = FALSE), cue = tar_cue("never"))
 )

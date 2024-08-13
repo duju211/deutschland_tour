@@ -84,6 +84,11 @@ frame:
 ```{r, code=df_manifest$command[df_manifest$name == "df_stages"]}
 ```
 
+Preprocess decisive columns to numeric values:
+
+```{r, code=df_manifest$command[df_manifest$name == "df_stages_pro"]}
+```
+
 # Analysis
 
 Turn data frame into a sf [@cit_sf] object:
