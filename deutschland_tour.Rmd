@@ -13,11 +13,11 @@ bibliography: biblio.bib
 editor_options: 
   chunk_output_type: console
 params:
-  interactive: TRUE
+  connect_active: !r config::is_active('rsconnect')
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = !params$interactive)
+knitr::opts_chunk$set(echo = TRUE, eval = params$connect_active)
 
 source("libraries.R")
 
@@ -97,7 +97,7 @@ Turn data frame into a sf [@cit_sf] object:
 ```
 
 ```{r, eval=TRUE, include=FALSE}
-if (params$interactive)
+if (!params$connect_active)
   tar_load(sf_stages)
 ```
 
@@ -113,7 +113,7 @@ per stage:
 ```
 
 ```{r, eval=TRUE, include=FALSE}
-if (params$interactive)
+if (!params$connect_active)
   tar_load(sf_stages_multipoint)
 ```
 
@@ -127,7 +127,7 @@ Cast into lines with this operation:
 ```
 
 ```{r, eval=TRUE, include=FALSE}
-if (params$interactive)
+if (!params$connect_active)
   tar_load(sf_stages_line)
 ```
 
@@ -145,7 +145,7 @@ To Include an underlying map, 'ggspatial' [@cit_ggspatial] is used.
 ```
 
 ```{r, eval=TRUE, include=FALSE}
-if (params$interactive)
+if (!params$connect_active)
   tar_load(gg_stages_line)
 ```
 
@@ -162,7 +162,7 @@ With 'leaflet' [@cit_leaflet]  we can also have an interactive look:
 ```
 
 ```{r, eval=TRUE, include=FALSE}
-if (params$interactive)
+if (!params$connect_active)
   tar_load(gg_stages_line_interactive)
 ```
 
