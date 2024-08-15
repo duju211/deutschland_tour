@@ -25,7 +25,9 @@ list(
   tar_target(
     gg_stages_line_interactive, vis_stages_line_interactive(sf_stages_line)),
   
-  tar_render(deutschland_tour_report, "deutschland_tour.Rmd"),
+  tar_render(
+    deutschland_tour_report, "deutschland_tour.Rmd",
+    params = list(connect_active = FALSE)),
   tar_render(
     deutschland_tour_report_test, "deutschland_tour.Rmd",
     params = list(interactive = FALSE), cue = tar_cue("never"))

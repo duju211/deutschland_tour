@@ -13,7 +13,7 @@ bibliography: biblio.bib
 editor_options: 
   chunk_output_type: console
 params:
-  connect_active: !r config::is_active('rsconnect')
+  connect_active: TRUE
 ---
 
 ```{r setup, include=FALSE}
