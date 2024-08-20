@@ -145,7 +145,7 @@ margin-left: 2em;
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","creative_commons","repository_url","base_url","bibliography","editor_options","params"]}},"value":[{"type":"character","attributes":{},"value":["Deutschland Tour 2024"]},{"type":"character","attributes":{},"value":["Exploring the route of this years 'Deutschland Tour' with R\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Julian During"]}]}]},{"type":"character","attributes":{},"value":["2024-08-07"]},{"type":"character","attributes":{},"value":["distill::distill_article"]},{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["https://github.com/duju211/deutschland_tour"]},{"type":"character","attributes":{},"value":["https://www.datannery.com/posts/deutschland_tour/"]},{"type":"character","attributes":{},"value":["biblio.bib"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["chunk_output_type"]}},"value":[{"type":"character","attributes":{},"value":["console"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["connect_active"]}},"value":[{"type":"character","attributes":{},"value":["config::is_active('rsconnect')"]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","creative_commons","repository_url","base_url","bibliography","editor_options","params"]}},"value":[{"type":"character","attributes":{},"value":["Deutschland Tour 2024"]},{"type":"character","attributes":{},"value":["Exploring the route of this years 'Deutschland Tour' with R\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Julian During"]}]}]},{"type":"character","attributes":{},"value":["2024-08-07"]},{"type":"character","attributes":{},"value":["distill::distill_article"]},{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["https://github.com/duju211/deutschland_tour"]},{"type":"character","attributes":{},"value":["https://www.datannery.com/posts/deutschland_tour/"]},{"type":"character","attributes":{},"value":["biblio.bib"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["chunk_output_type"]}},"value":[{"type":"character","attributes":{},"value":["console"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["connect_active"]}},"value":[{"type":"logical","attributes":{},"value":[true]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -6503,8 +6503,8 @@ data.</p>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://paleolimbot.github.io/ggspatial/">ggspatial</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/leaflet/">leaflet</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/targets/">targets</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rvest.tidyverse.org/">rvest</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://httr2.r-lib.org">httr2</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://xml2.r-lib.org/">xml2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://fs.r-lib.org">fs</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span></span>
 <span></span>
@@ -6540,22 +6540,16 @@ helper functions (see documentation links):</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class="va">stage</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">gpx_url</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">res_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://fs.r-lib.org/reference/file_temp.html">file_temp</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="va">resp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://httr2.r-lib.org/reference/req_perform.html">req_perform</a></span><span class="op">(</span><span class="fu"><a href="https://httr2.r-lib.org/reference/request.html">request</a></span><span class="op">(</span><span class="va">gpx_url</span><span class="op">)</span><span class="op">)</span></span>
 <span>  </span>
-<span>  <span class="fu"><a href="https://httr2.r-lib.org/reference/req_perform.html">req_perform</a></span><span class="op">(</span><span class="fu"><a href="https://httr2.r-lib.org/reference/request.html">request</a></span><span class="op">(</span><span class="va">gpx_url</span><span class="op">)</span>, path <span class="op">=</span> <span class="va">res_path</span><span class="op">)</span></span>
-<span>  </span>
-<span>  <span class="va">gpx_xml</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://xml2.r-lib.org/reference/read_xml.html">read_xml</a></span><span class="op">(</span><span class="va">res_path</span><span class="op">)</span></span>
-<span>  </span>
-<span>  <span class="va">gpx_trackpoints</span> <span class="op">&lt;-</span> <span class="va">gpx_xml</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="http://xml2.r-lib.org/reference/xml_children.html">xml_child</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="http://xml2.r-lib.org/reference/xml_children.html">xml_child</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="http://xml2.r-lib.org/reference/xml_children.html">xml_children</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="va">gpx_trackpoints</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://httr2.r-lib.org/reference/resp_body_raw.html">resp_body_string</a></span><span class="op">(</span><span class="va">resp</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="http://xml2.r-lib.org/reference/read_xml.html">read_html</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rvest.tidyverse.org/reference/html_element.html">html_elements</a></span><span class="op">(</span><span class="st">&quot;trkpt&quot;</span><span class="op">)</span></span>
 <span>  </span>
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
-<span>    lat <span class="op">=</span> <span class="fu"><a href="http://xml2.r-lib.org/reference/xml_attr.html">xml_attr</a></span><span class="op">(</span><span class="va">gpx_trackpoints</span>, <span class="st">&quot;lat&quot;</span><span class="op">)</span>,</span>
-<span>    lon <span class="op">=</span> <span class="fu"><a href="http://xml2.r-lib.org/reference/xml_attr.html">xml_attr</a></span><span class="op">(</span><span class="va">gpx_trackpoints</span>, <span class="st">&quot;lon&quot;</span><span class="op">)</span>,</span>
-<span>    elevation <span class="op">=</span> <span class="fu"><a href="http://xml2.r-lib.org/reference/xml_text.html">xml_text</a></span><span class="op">(</span><span class="fu"><a href="http://xml2.r-lib.org/reference/xml_children.html">xml_children</a></span><span class="op">(</span><span class="va">gpx_trackpoints</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>point_nr <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/row_number.html">row_number</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span>    lat <span class="op">=</span> <span class="fu"><a href="https://rvest.tidyverse.org/reference/html_attr.html">html_attr</a></span><span class="op">(</span><span class="va">gpx_trackpoints</span>, <span class="st">&quot;lat&quot;</span><span class="op">)</span>,</span>
+<span>    lon <span class="op">=</span> <span class="fu"><a href="https://rvest.tidyverse.org/reference/html_attr.html">html_attr</a></span><span class="op">(</span><span class="va">gpx_trackpoints</span>, <span class="st">&quot;lon&quot;</span><span class="op">)</span>,</span>
+<span>    elevation <span class="op">=</span> <span class="fu"><a href="https://rvest.tidyverse.org/reference/html_text.html">html_text</a></span><span class="op">(</span><span class="va">gpx_trackpoints</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre>
 </div>
 </div>
@@ -6581,24 +6575,24 @@ frame:</p>
 </div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>Simple feature collection with 40834 features and 3 fields
+<pre><code>Simple feature collection with 40834 features and 2 fields
 Geometry type: POINT
 Dimension:     XY
 Bounding box:  xmin: 6.97561 ymin: 48.05465 xmax: 10.25127 ymax: 50.04494
 Geodetic CRS:  WGS 84
-# A tibble: 40,834 × 4
-   stage_id elevation point_nr            geometry
- * &lt;chr&gt;        &lt;dbl&gt;    &lt;int&gt;         &lt;POINT [°]&gt;
- 1 1             238.        1 (10.23479 50.04494)
- 2 1             236.        2 (10.23523 50.04476)
- 3 1             236.        3 (10.23523 50.04476)
- 4 1             233         4 (10.23582 50.04443)
- 5 1             233         5 (10.23582 50.04443)
- 6 1             233.        6 (10.23637 50.04409)
- 7 1             233.        7 (10.23637 50.04409)
- 8 1             227.        8 (10.23682 50.04377)
- 9 1             227.        9 (10.23682 50.04377)
-10 1             228.       10 (10.23678 50.04381)
+# A tibble: 40,834 × 3
+   stage_id elevation            geometry
+ * &lt;chr&gt;        &lt;dbl&gt;         &lt;POINT [°]&gt;
+ 1 1             238. (10.23479 50.04494)
+ 2 1             236. (10.23523 50.04476)
+ 3 1             236. (10.23523 50.04476)
+ 4 1             233  (10.23582 50.04443)
+ 5 1             233  (10.23582 50.04443)
+ 6 1             233. (10.23637 50.04409)
+ 7 1             233. (10.23637 50.04409)
+ 8 1             227. (10.23682 50.04377)
+ 9 1             227. (10.23682 50.04377)
+10 1             228. (10.23678 50.04381)
 # ℹ 40,824 more rows</code></pre>
 </div>
 <p>The spatial data is represented as points at the moment.

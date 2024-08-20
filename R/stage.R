@@ -1,18 +1,12 @@
 stage <- function(gpx_url) {
-  res_path <- file_temp()
+  resp <- req_perform(request(gpx_url))
   
-  req_perform(request(gpx_url), path = res_path)
-  
-  gpx_xml <- read_xml(res_path)
-  
-  gpx_trackpoints <- gpx_xml |>
-    xml_child(1) |>
-    xml_child(2) |>
-    xml_children()
+  gpx_trackpoints <- resp_body_string(resp) |>
+    read_html() |>
+    html_elements("trkpt")
   
   tibble(
-    lat = xml_attr(gpx_trackpoints, "lat"),
-    lon = xml_attr(gpx_trackpoints, "lon"),
-    elevation = xml_text(xml_children(gpx_trackpoints))) |>
-    mutate(point_nr = row_number())
+    lat = html_attr(gpx_trackpoints, "lat"),
+    lon = html_attr(gpx_trackpoints, "lon"),
+    elevation = html_text(gpx_trackpoints))
 }
