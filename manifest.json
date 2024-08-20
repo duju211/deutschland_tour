@@ -1,7 +1,7 @@
 {
   "version": 1,
   "locale": "de_DE",
-  "platform": "4.4.0",
+  "platform": "4.4.1",
   "metadata": {
     "appmode": "rmd-static",
     "primary_rmd": "deutschland_tour.Rmd",
@@ -48,8 +48,8 @@
       "description": {
         "Package": "KernSmooth",
         "Priority": "recommended",
-        "Version": "2.23-22",
-        "Date": "2023-07-10",
+        "Version": "2.23-24",
+        "Date": "2024-05-16",
         "Title": "Functions for Kernel Smoothing Supporting Wand & Jones (1995)",
         "Authors@R": "c(person(\"Matt\", \"Wand\", role = \"aut\",\n\t             email = \"Matt.Wand@uts.edu.au\"),\n\t     person(\"Cleve\", \"Moler\", role = \"ctb\",\n\t            comment = \"LINPACK routines in src/d*\"),\n             person(\"Brian\", \"Ripley\", role = c(\"trl\", \"cre\", \"ctb\"),\n                    email = \"ripley@stats.ox.ac.uk\",\n\t\t    comment = \"R port and updates\"))",
         "Note": "Maintainers are not available to give advice on using a package\nthey did not author.",
@@ -59,12 +59,12 @@
         "License": "Unlimited",
         "ByteCompile": "yes",
         "NeedsCompilation": "yes",
-        "Packaged": "2023-07-10 11:00:31 UTC; ripley",
+        "Packaged": "2024-05-17 07:28:00 UTC; ripley",
         "Author": "Matt Wand [aut],\n  Cleve Moler [ctb] (LINPACK routines in src/d*),\n  Brian Ripley [trl, cre, ctb] (R port and updates)",
         "Maintainer": "Brian Ripley <ripley@stats.ox.ac.uk>",
         "Repository": "CRAN",
-        "Date/Publication": "2023-07-10 14:38:27 UTC",
-        "Built": "R 4.4.0; x86_64-w64-mingw32; 2024-04-24 08:34:17 UTC; windows",
+        "Date/Publication": "2024-05-17 09:28:22",
+        "Built": "R 4.4.1; x86_64-w64-mingw32; 2024-06-14 08:34:11 UTC; windows",
         "Archs": "x64"
       }
     },
@@ -92,7 +92,9 @@
         "Packaged": "2024-01-12 08:51:36 UTC; ripley",
         "Author": "Brian Ripley [aut, cre, cph],\n  Bill Venables [ctb],\n  Douglas M. Bates [ctb],\n  Kurt Hornik [trl] (partial port ca 1998),\n  Albrecht Gebhardt [trl] (partial port ca 1998),\n  David Firth [ctb]",
         "Maintainer": "Brian Ripley <ripley@stats.ox.ac.uk>",
-        "Built": "R 4.4.0; x86_64-w64-mingw32; 2024-04-24 08:28:30 UTC; windows",
+        "Repository": "CRAN",
+        "Date/Publication": "2024-04-26 12:02:47 UTC",
+        "Built": "R 4.4.1; x86_64-w64-mingw32; 2024-06-14 08:25:51 UTC; windows",
         "Archs": "x64"
       }
     },
@@ -125,8 +127,8 @@
         "Author": "Douglas Bates [aut] (<https://orcid.org/0000-0001-8316-9503>),\n  Martin Maechler [aut, cre] (<https://orcid.org/0000-0002-8685-9910>),\n  Mikael Jagan [aut] (<https://orcid.org/0000-0002-3542-2938>),\n  Timothy A. Davis [ctb] (<https://orcid.org/0000-0001-7614-6899>,\n    SuiteSparse libraries, collaborators listed in\n    dir(system.file(\"doc\", \"SuiteSparse\", package=\"Matrix\"),\n    pattern=\"License\", full.names=TRUE, recursive=TRUE)),\n  George Karypis [ctb] (<https://orcid.org/0000-0003-2753-1437>, METIS\n    library, Copyright: Regents of the University of Minnesota),\n  Jason Riedy [ctb] (<https://orcid.org/0000-0002-4345-4200>, GNU\n    Octave's condest() and onenormest(), Copyright: Regents of the\n    University of California),\n  Jens Oehlschlägel [ctb] (initial nearPD()),\n  R Core Team [ctb] (base R's matrix implementation)",
         "Maintainer": "Martin Maechler <mmaechler+Matrix@gmail.com>",
         "Repository": "CRAN",
-        "Date/Publication": "2024-03-22 09:08:25 UTC",
-        "Built": "R 4.4.0; x86_64-w64-mingw32; 2024-04-24 08:28:50 UTC; windows",
+        "Date/Publication": "2024-04-26 12:03:02 UTC",
+        "Built": "R 4.4.1; x86_64-w64-mingw32; 2024-06-14 08:26:22 UTC; windows",
         "Archs": "x64"
       }
     },
@@ -644,7 +646,7 @@
         "Maintainer": "Brian Ripley <ripley@stats.ox.ac.uk>",
         "Repository": "CRAN",
         "Date/Publication": "2023-05-03 11:01:28 UTC",
-        "Built": "R 4.4.0; x86_64-w64-mingw32; 2024-04-24 08:34:33 UTC; windows",
+        "Built": "R 4.4.1; x86_64-w64-mingw32; 2024-06-14 08:34:33 UTC; windows",
         "Archs": "x64"
       }
     },
@@ -753,7 +755,7 @@
         "Packaged": "2024-03-31 18:18:09 UTC; luke",
         "Repository": "CRAN",
         "Date/Publication": "2024-03-31 20:10:06 UTC",
-        "Built": "R 4.4.0; ; 2024-04-24 08:34:07 UTC; windows"
+        "Built": "R 4.4.1; ; 2024-06-14 08:33:57 UTC; windows"
       }
     },
     "colorspace": {
@@ -2162,7 +2164,7 @@
         "Maintainer": "Deepayan Sarkar <deepayan.sarkar@r-project.org>",
         "Repository": "CRAN",
         "Date/Publication": "2024-03-20 06:10:02 UTC",
-        "Built": "R 4.4.0; x86_64-w64-mingw32; 2024-04-24 08:28:40 UTC; windows",
+        "Built": "R 4.4.1; x86_64-w64-mingw32; 2024-06-14 08:26:06 UTC; windows",
         "Archs": "x64"
       }
     },
@@ -2392,7 +2394,7 @@
         "Packaged": "2023-12-20 10:39:06 UTC; sw283",
         "Repository": "CRAN",
         "Date/Publication": "2023-12-21 00:30:02 UTC",
-        "Built": "R 4.4.0; x86_64-w64-mingw32; 2024-04-24 08:34:43 UTC; windows",
+        "Built": "R 4.4.1; x86_64-w64-mingw32; 2024-06-14 08:34:48 UTC; windows",
         "Archs": "x64"
       }
     },
@@ -2503,7 +2505,7 @@
         "Maintainer": "R Core Team <R-core@R-project.org>",
         "Repository": "CRAN",
         "Date/Publication": "2023-11-27 15:26:12 UTC",
-        "Built": "R 4.4.0; x86_64-w64-mingw32; 2024-04-24 08:32:46 UTC; windows",
+        "Built": "R 4.4.1; x86_64-w64-mingw32; 2024-06-14 08:32:05 UTC; windows",
         "Archs": "x64"
       }
     },
@@ -4371,58 +4373,58 @@
   },
   "files": {
     "_targets.R": {
-      "checksum": "c4add2625e179452453a36942f1114b8"
+      "checksum": "332708e01cf50dce1d7814ea69831b7e"
     },
     "_targets/meta/meta": {
-      "checksum": "3f2d3efcfe0ff40720ce2573ce71b320"
+      "checksum": "6bb541224b59def71d40debfd236140e"
     },
     "_targets/meta/process": {
-      "checksum": "dbffab41e1725e65a04c0836fd65a0d8"
+      "checksum": "075779108c67698c324d4c262ec3fb67"
     },
     "_targets/meta/progress": {
-      "checksum": "7737fa17ab40d9a67c647b566725e2fc"
+      "checksum": "bc16090cf7d9dece7616554d047ac146"
     },
     "_targets/objects/df_stages": {
-      "checksum": "c089a745176f8c81ae0dce083285de3d"
+      "checksum": "1645e167d39068234e494963a77b0d43"
     },
     "_targets/objects/df_stages_pro": {
-      "checksum": "27d8b7da2a403fa27b693d96272c302f"
+      "checksum": "b4a2e0ed9b5628d1d76c321c893770e9"
     },
     "_targets/objects/gg_stages_line": {
-      "checksum": "31f2d920c0c61f02c2e8facce798fea4"
+      "checksum": "1b40015e2ca4b8e071b5840e0f05ddc4"
     },
     "_targets/objects/gg_stages_line_interactive": {
-      "checksum": "afd5376f67350f7e04d9f36ea0f2a248"
+      "checksum": "18780d0867d03198d11ef07439d83b8b"
     },
     "_targets/objects/gpx_url": {
       "checksum": "c81da8d18a3f12e45f6933fd6d9b045c"
     },
     "_targets/objects/sf_stages": {
-      "checksum": "cf8c4ac0dfb132721281ddae82651701"
+      "checksum": "a74abaf5f25303869573f5f0a68a3105"
     },
     "_targets/objects/sf_stages_line": {
-      "checksum": "9d84fa829028eb4ed1ed8caf326f6011"
+      "checksum": "e50f50cde228a7cdbdbcdf65469425ca"
     },
     "_targets/objects/sf_stages_multipoint": {
-      "checksum": "2470bfd8b82294b0a4b44b3b7a6303f8"
+      "checksum": "37e9905aa25cec80860c4c33f3f75fdf"
     },
     "biblio.bib": {
       "checksum": "73888443ab94a64330ebec73e7a3088b"
     },
     "deutschland_tour.html": {
-      "checksum": "7386d4f17fa052d9548abc4294cb78f3"
+      "checksum": "270ff779682ab8fd8d3ce0bfee96ba1d"
     },
     "deutschland_tour.Rmd": {
-      "checksum": "3dede431eedcde1866362e907d0cac38"
+      "checksum": "927d22cce91bd7fdf3a9211cbe0db66f"
     },
     "libraries.R": {
-      "checksum": "67c076a0c96043a00f6cafe7ea0bcb2e"
+      "checksum": "4a40328fa3cbfcd3ac77280e99948349"
     },
     "main.R": {
       "checksum": "1716e577a4b93f49313aed456e817d6a"
     },
     "R/stage.R": {
-      "checksum": "282960988ecc9cfe03456e857a4cd2d3"
+      "checksum": "a0493977c69ab31d1fc549f0f37f0afc"
     },
     "R/vis_stages_line.R": {
       "checksum": "c45d8a0616455bed4d9082785e092bd1"
