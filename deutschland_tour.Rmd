@@ -65,21 +65,18 @@ At first define where gpx files can be read from:
 ```{r gpx_url, code=df_manifest$command[df_manifest$name == "gpx_url"]}
 ```
 
-Define helper function that reads in stage data. To do this first download
-the gpx file (using 'httr2' [@cit_httr2]) and save it to an temporary file
-(using 'fs' [@cit_fs]).
-
-The resulting file is a xml file. Read it in 
-(using the 'xml2' package [@cit_xml2])
-and get all the elements that represent "trackpoints". 
-Extract spatial information from these "trackpoints" using various
-helper functions (see documentation links):
+Define helper function that reads in stage data using 'httr2' [@cit_httr2].
+Read in html file and search
+for elements representing html files using a css selector.
 
 ```{r, file="R/stage.R"}
 ```
 
-Apply the above mentioned function to all urls resulting in one final data
-frame:
+Define the CSS selector and apply the above mentioned function to all urls
+resulting in one final data frame:
+
+```{r, code=df_manifest$command[df_manifest$name == "css_track_point"]}
+```
 
 ```{r, code=df_manifest$command[df_manifest$name == "df_stages"]}
 ```

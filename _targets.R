@@ -9,8 +9,11 @@ list(
       "https://www.deutschland-tour.com/fileadmin/content/2_Deutschland_Tour/DT_24/Elite/DT24_E2_HN-GD_173km_inklneutral.gpx",
       "https://www.deutschland-tour.com/fileadmin/content/2_Deutschland_Tour/DT_24/Elite/DT24_E3_GD-VS_211km_inklneutral.gpx",
       "https://www.deutschland-tour.com/fileadmin/content/2_Deutschland_Tour/DT_24/Elite/DT24_E4_Annw-SB_182km_inklneutral.gpx")),
+  tar_target(css_track_point, "trkpt"),
   
-  tar_target(df_stages, map_df(gpx_url, \(x) stage(x), .id = "stage_id")),
+  tar_target(
+    df_stages,
+    map_df(gpx_url, \(x) stage(x, css_track_point), .id = "stage_id")),
   tar_target(
     df_stages_pro,
     mutate(df_stages, across(c(lon, lat, elevation), \(x) parse_number(x)))),
@@ -30,5 +33,5 @@ list(
     params = list(connect_active = FALSE)),
   tar_render(
     deutschland_tour_report_test, "deutschland_tour.Rmd",
-    params = list(interactive = FALSE), cue = tar_cue("never"))
+    params = list(connect_active = FALSE), cue = tar_cue("never"))
 )
