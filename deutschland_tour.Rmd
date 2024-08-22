@@ -75,22 +75,22 @@ for elements representing html files using a css selector.
 Define the CSS selector and apply the above mentioned function to all urls
 resulting in one final data frame:
 
-```{r, code=df_manifest$command[df_manifest$name == "css_track_point"]}
+```{r css_track_point, code=df_manifest$command[df_manifest$name == "css_track_point"]}
 ```
 
-```{r, code=df_manifest$command[df_manifest$name == "df_stages"]}
+```{r df_stages, code=df_manifest$command[df_manifest$name == "df_stages"]}
 ```
 
 Preprocess decisive columns to numeric values:
 
-```{r, code=df_manifest$command[df_manifest$name == "df_stages_pro"]}
+```{r df_stages_pro, code=df_manifest$command[df_manifest$name == "df_stages_pro"]}
 ```
 
 # Analysis
 
 Turn data frame into a sf [@cit_sf] object:
 
-```{r, code=df_manifest$command[df_manifest$name == "sf_stages"]}
+```{r sf_stages, code=df_manifest$command[df_manifest$name == "sf_stages"]}
 ```
 
 ```{r, eval=TRUE, include=FALSE}
@@ -106,7 +106,7 @@ The spatial data is represented as points at the moment.
 Summarise points per stage, combining them into 'multipoints' and one row
 per stage:
 
-```{r, code=df_manifest$command[df_manifest$name == "sf_stages_multipoint"]}
+```{r sf_stages_multipoint, code=df_manifest$command[df_manifest$name == "sf_stages_multipoint"]}
 ```
 
 ```{r, eval=TRUE, include=FALSE}
@@ -138,7 +138,7 @@ To Include an underlying map, 'ggspatial' [@cit_ggspatial] is used.
 ```{r, file="R/vis_stages_line.R"}
 ```
 
-```{r, code=df_manifest$command[df_manifest$name == "gg_stages_line"]}
+```{r gg_stages_line, code=df_manifest$command[df_manifest$name == "gg_stages_line"]}
 ```
 
 ```{r, eval=TRUE, include=FALSE}
@@ -155,7 +155,7 @@ With 'leaflet' [@cit_leaflet]  we can also have an interactive look:
 ```{r, file="R/vis_stages_line_interactive.R"}
 ```
 
-```{r, code=df_manifest$command[df_manifest$name == "gg_stages_line_interactive"]}
+```{r gg_stages_line_interactive, code=df_manifest$command[df_manifest$name == "gg_stages_line_interactive"]}
 ```
 
 ```{r, eval=TRUE, include=FALSE}
